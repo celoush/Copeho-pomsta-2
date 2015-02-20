@@ -1,0 +1,242 @@
+onLoadIntroTime = false;
+onLoadMissionTime = false;
+OnLoadMission = $STR_CELO_LOAD_TEXT;
+OnLoadMissionIntro = $STR_CELO_LOAD_TEXT;
+
+showGPS = 0; 
+debriefing = 0; 
+showCompass = 0; 
+showMap = 0; 
+showNotepad = 1; 
+showWatch = 1; 
+
+doneKeys[] = {"klic_celo_2"};
+
+class CfgIdentities
+{
+	class CELO_Cope
+	{
+		name = "William Cope";
+		face = "Face75";
+		glasses = "None";
+		speaker = "Male03CZ";
+		pitch = 0.97;
+	};
+	class CELO_Cope2
+	{
+		name = "John Cope";
+		face = "Face25";
+		glasses = "None";
+		speaker = "Male02CZ";
+		pitch = 0.91;
+	};
+};
+
+
+// ---------------- Definice typů objektů ----------
+// --- Není nutné - Lze použít přímo čísla typu  ---
+#define CT_STATIC		0
+#define ST_CENTER		2
+#define ST_MULTI		16
+#define ST_SHADOW		256
+#define ST_NO_RECT	512
+
+// ------------ Základní třídy ----------------
+
+
+class CELO_RscText
+{
+	type=0;
+	idc=4294967295;
+	style=0;
+	h=0.040000;
+	colorBackground[]={0,0,0,0};
+	colorText[]={0.780000,0.080000,0.520000,0.750000};
+	font="Zeppelin32";
+	sizeEx=0.020000;
+};
+
+
+// ----------------- Třídy titulků -------------------
+class RscTitles 
+{ 
+	titles[] = 
+	{
+
+		CELO_titlesorb,
+		CELO_titlesceloush,
+		CELO_titlesuvadi,
+		CELO_titleskonec,
+		CELO_titlespokracovani,
+	};
+
+	class CELO_titlesorb
+	{
+		name = "";
+		duration = 6;
+		idd = -1;
+		movingEnable = false;
+		
+		controls[]= {text};
+
+		class text: CELO_RscText
+		{
+			style = ST_MULTI + ST_CENTER + ST_NO_RECT;
+			lineSpacing = 1.0;
+			text = $STR_CELO_title3;
+			x = 0.01; y = 0.4; w = 0.99; h = 0.5;
+			colorText[] = {0, 0.5, 0, 1};
+			font = "Zeppelin32";
+			sizeEx = 0.15;
+			size = 0.3;
+		};
+
+	};
+
+	class CELO_titleskonec
+	{
+		name = "";
+		duration = 9;
+		idd = -1;
+		movingEnable = false;
+		
+		controls[]= {text};
+
+		class text: CELO_RscText
+		{
+			style = ST_MULTI + ST_CENTER + ST_NO_RECT;
+			lineSpacing = 1.0;
+			text = $STR_CELO_title4;
+			x = 0.1; y = 0.4; w = 0.9; h = 0.5;
+			colorText[] = {0, 0.5, 0, 1};
+			font = "Zeppelin32";
+			sizeEx = 0.15;
+			size = 0.3;
+		};
+
+	};
+
+	class CELO_titlespokracovani
+	{
+		name = "";
+		duration = 7;
+		idd = -1;
+		movingEnable = false;
+		
+		controls[]= {text};
+
+		class text: CELO_RscText
+		{
+			style = ST_MULTI + ST_CENTER + ST_NO_RECT;
+			lineSpacing = 1.0;
+			text = $STR_CELO_title5;
+			x = 0.1; y = 0.4; w = 0.9; h = 0.5;
+			colorText[] = {0, 0.5, 0, 1};
+			font = "Zeppelin32";
+			sizeEx = 0.15;
+			size = 0.3;
+		};
+
+	};
+
+	class CELO_titlesceloush
+	{
+		name = "";
+		duration = 6;
+		idd = -1;
+		movingEnable = false;
+		
+		controls[]= {text};
+
+		class text: CELO_RscText
+		{
+			style = ST_MULTI + ST_CENTER + ST_NO_RECT;
+			lineSpacing = 1.0;
+			text = $STR_CELO_title1;
+			x = 0.17; y = 0.4; w = 0.66; h = 0.2;
+			colorText[] = {0, 0.5, 0, 1};
+			font = "Zeppelin32";
+			sizeEx = 0.15;
+			size = 0.3;
+		};
+
+	};
+
+	class CELO_titlesuvadi
+	{
+		name = "";
+		duration = 6;
+		idd = -1;
+		movingEnable = false;
+		
+		controls[]= {text};
+
+		class text: CELO_RscText
+		{
+			style = ST_MULTI + ST_CENTER + ST_NO_RECT;
+			lineSpacing = 1.0;
+			text = $STR_CELO_title2;
+			x = 0.17; y = 0.4; w = 0.66; h = 0.2;
+			colorText[] = {0, 0.5, 0, 1};
+			font = "Zeppelin32";
+			sizeEx = 0.15;
+			size = 0.3;
+		};
+
+	};
+
+};
+
+
+class CfgMusic
+{
+ tracks[]={};
+
+ class CELO_Cope_intro
+ {
+  name = "Cope´s Revenge - music intro";
+  sound[] = {"\music\intro.ogg", db+0, 1.0};
+ };
+ class CELO_Cope_outro
+ {
+  name = "Cope´s Revenge - music outro";
+  sound[] = {"\music\outro.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_end_of_part
+ {
+  name = "Cope´s Revenge - music end of part";
+  sound[] = {"\music\end_of_part.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_1
+ {
+  name = "Cope´s Revenge - music Cope in action #1";
+  sound[] = {"\music\cope1.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_3
+ {
+  name = "Cope´s Revenge - music Cope in action #2";
+  sound[] = {"\music\cope2.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_5
+ {
+  name = "Cope´s Revenge - music Cope in action #3";
+  sound[] = {"\music\cope3.ogg", db+10, 1.0};
+ };
+
+ class CELO_Cope_2
+ {
+  name = "Cope´s Revenge - music Cope jr. in action #1";
+  sound[] = {"\music\cope2_1.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_4
+ {
+  name = "Cope´s Revenge - music Cope jr. in action #2";
+  sound[] = {"\music\cope2_2.ogg", db+10, 1.0};
+ };
+ class CELO_Cope_6
+ {
+  name = "Cope´s Revenge - music Cope jr. in action #3";
+  sound[] = {"\music\cope2_3.ogg", db+10, 1.0};
+ };
+
+};

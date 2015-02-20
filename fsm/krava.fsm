@@ -1,0 +1,29 @@
+class FSM
+{
+	fsmName = "FSM_Krava";
+	initState = "";
+	finalStates[] = {};
+	class States
+	{
+		class Zdrhej_kravo
+		{
+			name = "Zdrhej_kravo";
+			init = "";
+			class Links
+			{
+				class zdrhani
+				{
+					to = "Zdrham";
+					priority = "0,000000";
+					condition = "FIRED";
+					action = "this doMove getPos kravaCil";
+				};
+			};
+		};
+		class Zdrham
+		{
+			name = "Zdrham";
+			init = "";
+		};
+	};
+};
